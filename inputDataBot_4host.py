@@ -34,10 +34,10 @@ def callback():
 @handler.add(FollowEvent)
 def handle_follow(event):
   line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(text='Colorful Talk株式会社です。この度、弊社のサービス””をご利用いただき、ありがとうございます。'))
+        event.reply_token, TextSendMessage(text=u'Colorful Talk株式会社です。この度、弊社のサービス””をご利用いただき、ありがとうございます。'))
   # get user_id from event
   uId = event.source.user_id
-  print uId
+  print(uId)
 
 #get profile from user_id
   profile = line_bot_api.get_profile(uId)
@@ -85,13 +85,13 @@ def handle_message(event):
 
   # get user_id from event
   uId = event.source.user_id
-  print uId
+  print(uId)
 
   #get profile from user_id
   profile = line_bot_api.get_profile(uId)
   print(profile.display_name)
   print(profile.user_id)
-  print 'reply to text message'
+  print('reply to text message')
   line_bot_api.push_message(profile.user_id, TextSendMessage(text='Bello!'))
 
 
